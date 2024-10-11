@@ -13,7 +13,7 @@ done
 
 if [ -n "${REQUIREMENTS}" ] && [ -f "${GITHUB_WORKSPACE}/${REQUIREMENTS}" ]; then
     pip install -U pip
-    pip -r "${GITHUB_WORKSPACE}/${REQUIREMENTS}"
+    pip install -r "${GITHUB_WORKSPACE}/${REQUIREMENTS}"
 else
     REQUIREMENTS="${GITHUB_WORKSPACE}/requirements.txt"
     if [ -f "${REQUIREMENTS}" ]; then
