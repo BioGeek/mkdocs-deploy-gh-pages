@@ -12,11 +12,12 @@ do
 done
 
 if [ -n "${REQUIREMENTS}" ] && [ -f "${GITHUB_WORKSPACE}/${REQUIREMENTS}" ]; then
-    print_info "Installing instanovo specific requirements"
-    pip install instanovo torch --extra-index-url https://download.pytorch.org/whl/cpu -r "${GITHUB_WORKSPACE}/${REQUIREMENTS}"
+    pip install -U pip
+    pip -r "${GITHUB_WORKSPACE}/${REQUIREMENTS}"
 else
     REQUIREMENTS="${GITHUB_WORKSPACE}/requirements.txt"
     if [ -f "${REQUIREMENTS}" ]; then
+        pip install -U pip
         pip install -r "${REQUIREMENTS}"
     fi
 fi
