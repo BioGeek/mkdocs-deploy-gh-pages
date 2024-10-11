@@ -12,7 +12,8 @@ do
 done
 
 if [ -n "${REQUIREMENTS}" ] && [ -f "${GITHUB_WORKSPACE}/${REQUIREMENTS}" ]; then
-    pip install --no-deps instanovo torch --extra-index-url https://download.pytorch.org/whl/cpu -r "${GITHUB_WORKSPACE}/${REQUIREMENTS}"
+    print_info "Installing instanovo specific requirements"
+    pip install instanovo torch --extra-index-url https://download.pytorch.org/whl/cpu -r "${GITHUB_WORKSPACE}/${REQUIREMENTS}"
 else
     REQUIREMENTS="${GITHUB_WORKSPACE}/requirements.txt"
     if [ -f "${REQUIREMENTS}" ]; then
